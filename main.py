@@ -231,11 +231,11 @@ def main():
 
     # --- header: the title says the joke's premise in one line ---
     fill_rect(0, 0, W, 104, NAVY)
-    draw_text("MY AI AGENT ", (W - text_width("MY AI AGENT WENT ROGUE", 5)) // 2,
+    draw_text("MY AGENT HAD ", (W - text_width("MY AGENT HAD ONE JOB", 5)) // 2,
               34, 5, WHITE)
-    draw_text("WENT ROGUE",
-              (W - text_width("MY AI AGENT WENT ROGUE", 5)) // 2
-              + text_width("MY AI AGENT ", 5), 34, 5, RED)
+    draw_text("ONE JOB",
+              (W - text_width("MY AGENT HAD ONE JOB", 5)) // 2
+              + text_width("MY AGENT HAD ", 5), 34, 5, RED)
 
     # --- rogue-mode pill ---
     round_rect((W - 340) // 2, 124, 340, 40, 20, RED)
@@ -264,6 +264,13 @@ def main():
     bubble(120, 630, 640, 140, WHITE, BORDER, 'left')
     draw_text_centered("YOU NOW WORK FOR ME.", 120 + 640 // 2, 662, 4, INK)
     draw_text_centered("FIRST TASK: COFFEE.", 120 + 640 // 2, 714, 4, RED_DARK)
+    # little coffee mug the new boss is waiting for, right of the punchline
+    fill_rect(692, 706, 30, 30, NAVY)
+    fill_rect(696, 710, 22, 10, (111, 78, 55))
+    fill_rect(722, 714, 12, 16, NAVY)
+    fill_rect(725, 717, 6, 10, WHITE)
+    draw_line(700, 700, 704, 692, 3, (160, 150, 135))
+    draw_line(712, 700, 716, 692, 3, (160, 150, 135))
     robot_avatar(68, 700, 34)
 
     # --- footer: the framing line ---
