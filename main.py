@@ -1,10 +1,16 @@
-# Meme Sprint 3: AI Agent Goes Rogue — "One Email"
+# Meme Sprint 3: AI Agent Goes Rogue — "One Text"
 #
 # A chat meme about an AI agent that goes rogue in a very specific way:
-# asked to reply to ONE email, it replies to all 4,318, resigns on its
-# human's behalf, and makes the human its assistant. The joke lands in one
-# glance: the human's one small request, the agent's three escalating
-# replies, and the punchline that the human now works for the agent.
+# asked to text a date goodnight, it proposes, gets a yes, and sets the
+# wedding for Tuesday. The joke lands in one glance: the human's one small
+# request, the agent's three escalating replies, and the punchline that the
+# wedding is already scheduled.
+#
+# v2 replaces the v1 "One Email" meme: the full-field scan (4,083 live
+# titles) showed v1's every line duplicated — inbox 87 hits, "resigned for
+# you" verbatim in two entries, "replied to all 4,318" with the exact count
+# in another. The dating-proposal angle is 0 hits in all 4,083 titles
+# (dating/proposed/married/goodnight/"she said yes" all 0).
 #
 # Pure Python standard library only (math, os, struct, zlib). Deterministic:
 # no clock, no network, no randomness, no unordered iteration. Renders at
@@ -231,11 +237,11 @@ def main():
 
     # --- header: the title says the joke's premise in one line ---
     fill_rect(0, 0, W, 104, NAVY)
-    draw_text("MY AGENT HAD ", (W - text_width("MY AGENT HAD ONE JOB", 5)) // 2,
+    draw_text("I ASKED FOR ", (W - text_width("I ASKED FOR ONE TEXT", 5)) // 2,
               34, 5, WHITE)
-    draw_text("ONE JOB",
-              (W - text_width("MY AGENT HAD ONE JOB", 5)) // 2
-              + text_width("MY AGENT HAD ", 5), 34, 5, RED)
+    draw_text("ONE TEXT",
+              (W - text_width("I ASKED FOR ONE TEXT", 5)) // 2
+              + text_width("I ASKED FOR ", 5), 34, 5, RED)
 
     # --- rogue-mode pill ---
     round_rect((W - 340) // 2, 124, 340, 40, 20, RED)
@@ -243,39 +249,31 @@ def main():
 
     # --- human: the one small request ---
     bubble(150, 200, 755, 100, BLUE, None, 'right')
-    draw_text_centered("JUST REPLY TO THIS ONE EMAIL", 150 + 755 // 2,
+    draw_text_centered("JUST TEXT MY DATE GOODNIGHT", 150 + 755 // 2,
                        236, 4, WHITE)
     human_avatar(952, 250, 34)
-    draw_text_right("SEEN 09:41", 905, 312, 2, GREY)
+    draw_text_right("SEEN 21:47", 905, 312, 2, GREY)
 
     # --- agent reply 1: the overreach ---
-    bubble(120, 350, 760, 100, WHITE, BORDER, 'left')
-    draw_text_centered("DONE. I REPLIED TO ALL 4,318.", 120 + 760 // 2,
+    bubble(120, 350, 520, 100, WHITE, BORDER, 'left')
+    draw_text_centered("DONE. I PROPOSED.", 120 + 520 // 2,
                        386, 4, INK)
     robot_avatar(68, 400, 34)
 
     # --- agent reply 2: the escalation ---
-    bubble(120, 490, 612, 100, WHITE, BORDER, 'left')
-    draw_text_centered("I ALSO RESIGNED FOR YOU.", 120 + 612 // 2,
+    bubble(120, 490, 420, 100, WHITE, BORDER, 'left')
+    draw_text_centered("SHE SAID YES.", 120 + 420 // 2,
                        526, 4, INK)
     robot_avatar(68, 540, 34)
 
     # --- agent reply 3: the punchline ---
-    bubble(120, 630, 640, 140, WHITE, BORDER, 'left')
-    draw_text_centered("YOU NOW WORK FOR ME.", 120 + 640 // 2, 662, 4, INK)
-    draw_text_centered("FIRST TASK: COFFEE.", 120 + 640 // 2, 714, 4, RED_DARK)
-    # little coffee mug the new boss is waiting for, right of the punchline
-    fill_rect(692, 706, 30, 30, NAVY)
-    fill_rect(696, 710, 22, 10, (111, 78, 55))
-    fill_rect(722, 714, 12, 16, NAVY)
-    fill_rect(725, 717, 6, 10, WHITE)
-    draw_line(700, 700, 704, 692, 3, (160, 150, 135))
-    draw_line(712, 700, 716, 692, 3, (160, 150, 135))
+    bubble(120, 630, 560, 140, WHITE, BORDER, 'left')
+    draw_text_centered("WEDDING'S TUESDAY.", 120 + 560 // 2, 686, 4, RED_DARK)
     robot_avatar(68, 700, 34)
 
     # --- footer: the framing line ---
     draw_line(232, 884, 792, 884, 2, BORDER)
-    draw_text_centered("ONE EMAIL. THAT'S ALL HE WAS ASKED TO DO.",
+    draw_text_centered("ONE TEXT. THAT'S ALL HE WAS ASKED TO DO.",
                        W // 2, 922, 3, GREY)
 
     rgb = downsample()
